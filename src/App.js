@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import LoginForm from './LoginForm'; // Import the LoginForm component
 
 function App() {
+  const [isOn, setIsOn] = useState(false);
+
+  const toggleButton = () => {
+    setIsOn(!isOn);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <LoginForm /> {/* Use the LoginForm component here */}
-      </header>
+      <button
+        onClick={toggleButton}
+        className={`button ${isOn ? 'on' : 'off'}`}
+      >
+        {isOn ? 'On' : 'Off'}
+      </button>
     </div>
   );
 }
